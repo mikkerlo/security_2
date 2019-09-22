@@ -1,0 +1,21 @@
+{% extends 'head.jinja2' %}
+
+{% block body %}
+    {% if id_ %}
+            {% if users %}
+                <p class="lead">Список пользователей c id {{ id_ }}:</p>
+                {% include 'user_table.jinja2' %}
+            {% else %}
+                <p class="lead">Пользователей с id {{ id_ }} не найдено</p>
+            {% endif %}
+    {% else %}
+        <form action method="GET">
+          <div class="form-group">
+            <label for="exampleInputPassword1">Id</label>
+            <input type="text" name="id" class="form-control" id="exampleInputPassword1" placeholder="Id">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    {% endif %}
+{% endblock %}
+
